@@ -15,15 +15,13 @@ func main() {
 
 	file := os.Args[1]
 	input, err := os.ReadFile(file)
-
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
 	tetrominoes := operations.Split(input)
-	fmt.Println(tetrominoes)
-	if operations.Checker(tetrominoes) {
+	if operations.Checker(tetrominoes) && operations.IsConnected(tetrominoes) {
 		fmt.Println("good")
 	} else {
 		fmt.Println("Error")
