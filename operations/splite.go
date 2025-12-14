@@ -5,9 +5,10 @@ import (
 )
 
 func Split(input []byte) [][]string {
-	
-	splite := strings.Split(strings.TrimSpace(string(input)), "\r\n")
-	
+	temp := strings.ReplaceAll(string(input), "\r\n", "\n")
+
+	splite := strings.Split(strings.TrimSpace(string(temp)), "\n")
+
 	tetrominoes := [][]string{}
 	tetrominoe := []string{}
 	i := 0
@@ -16,7 +17,6 @@ func Split(input []byte) [][]string {
 
 		if j < 4 {
 			tetrominoe = append(tetrominoe, splite[i])
-
 		} else {
 			j = 0
 			tetrominoes = append(tetrominoes, tetrominoe)

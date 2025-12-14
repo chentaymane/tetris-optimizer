@@ -21,6 +21,8 @@ func main() {
 	}
 
 	tetrominoes := operations.Split(input)
+	board := operations.MakeBoard(tetrominoes)
+	fmt.Println(board)
 	if operations.Checker(tetrominoes) && operations.IsConnected(tetrominoes) {
 		fmt.Println("good")
 	} else {
